@@ -38,5 +38,18 @@ Este metodo es para insertar un nuevo producto a la base de datos, salen los cam
 La api responderá con mensaje de exito 
 ![image](./product_create_ok.png)
 
+5. Captura Metodo readProducts
+
+Te devuelve todos los productos en la base de datos
+
+![image](./metodo_get_Products.png)
+
+Y obtenemos la lista en forma json:
+
+![image](./read_productos.png)
+
+
+
+
 
 
