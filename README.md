@@ -56,5 +56,9 @@ Y obtenemos la lista en forma json:
 
 
 
+6. Captura Metodo Load Products desde cvs
 
+![image](./load_products.png)
 
+ y vemos que se han añadido :
+ ![image](./hasta_el_producto_30.png)
