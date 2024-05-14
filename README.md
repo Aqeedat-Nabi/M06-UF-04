@@ -16,11 +16,16 @@ Si esque lo encuentra, devolvera codigo 200
 
 Nuestro metodo de update producto cambia todos los campos de este. A través de /product/{id} donde id es el codigo identificador del producto que queremos cambiar, nos permitira introducir los nuevos valores. 
 
+Esto es nuestro producto con id 2 antes del cambio
+![image](./demo_id_producto2.png)
 
-![image](./metodo_update_producto.png)
+Lo cambiamos
+![image](./cambiar_producto_id2.png)
 
 Si el update ha sido correcto, devolverá codigo 200 
-![image](./update_producto_ok.png)
+![image](./producto_id2_cambiado.png)
+Resultado:
+![image](./cambio_correcto.png)
 
 3. Metodo delete product
 
