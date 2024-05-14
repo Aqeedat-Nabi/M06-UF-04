@@ -1,5 +1,6 @@
 from client import db_client
 
+ # READ all fields from category table 
 def read_category():
     
     try:
@@ -17,6 +18,7 @@ def read_category():
     return result
 
 
+# CREATE a new category 
 def create_category(name_categoria):
     try:
         conn = db_client()
@@ -31,6 +33,20 @@ def create_category(name_categoria):
         return {"status": -1, "message": f"Error de conexión: {e}"}
 
 
+# READ a category by name providing an id 
+def get_category_id_by_name(category_name):
+    try:
+        conn = db_client()
+        cur = conn.cursor()
+        query = "SELECT category_id FROM category WHERE name = %s;"
+        cur.execute(query, (category_name,))
+        result = cur.fetchone()
+        if result:
+            return result[0]
+        else:
+            return None
+    except Exception as e:
+        return None
 
 def get_category_by_name(nombre):
     try:
@@ -46,3 +62,17 @@ def get_category_by_name(nombre):
         conn.close()
 
 
+
+# UPDATE / MODIFY a category name , given it's id
+def update_category(category_id, category_name):
+    try:
+        conn = db_client()
+        cur = conn.cursor()
+        query = "UPDATE category SET name = %s, updated_at = CURRENT_TIMESTAMP WHERE category_id = %s;"
+        cur.execute(query, (category_name, category_id))
+        conn.commit()
+        return True
+    except Exception as e:
+        return False
+    finally:
+        conn.close()

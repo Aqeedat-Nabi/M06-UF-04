@@ -1,5 +1,8 @@
 import mysql.connector
 
+# a connection class ,  
+#  configuration file for the databases including credentials
+
 def db_client():
 
     try:
