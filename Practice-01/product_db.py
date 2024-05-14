@@ -1,5 +1,6 @@
 from client import db_client
 
+# READ products table
 def read_products():
     try:
         conn = db_client()
@@ -16,6 +17,7 @@ def read_products():
     return result
 
 
+# CREATE a new product
 def create_product(name, description, company, price, units, subcategory):
     try:
         conn = db_client()
@@ -34,7 +36,7 @@ def create_product(name, description, company, price, units, subcategory):
 
     return product_id
 
-
+# doing an UPDATE of products
 def update_product(id, name, description, company, price, units, subcategory):
     try:
         conn = db_client()
@@ -48,6 +50,7 @@ def update_product(id, name, description, company, price, units, subcategory):
         return {"status": -1, "message": f"Connection Error: {e}"}
     
 
+# DELETE a product
 def delete_product(id):
     try:
         conn = db_client()
@@ -60,6 +63,7 @@ def delete_product(id):
         return {"status": -1, "message": f"Connection Error: {e}"}
 
 
+# READ product by an id
 def get_product_by_id(id):
     try:
         conn = db_client()
@@ -74,10 +78,12 @@ def get_product_by_id(id):
         conn.close()
 
 
+# read all the fields of the products
 def read_product_fields(products):
     return [get_product_fields(product) for product in products]
 
 
+# READ all the products in the table
 def get_product_fields(product):
     return {
         "id": product[0],
@@ -90,6 +96,7 @@ def get_product_fields(product):
     }
 
 
+# presenting a product in a dict form (JSON)
 def product_schema(product) -> dict:
     return {
         "Id":product[0],
@@ -103,6 +110,7 @@ def product_schema(product) -> dict:
         }
 
 
+# READ category by passing the subcategory
 def get_category_knowing_subcategory(id_subc) -> int:
     try:
         conn = db_client()
@@ -121,7 +129,7 @@ def get_category_knowing_subcategory(id_subc) -> int:
     finally:
         conn.close()
 
-
+# get product's fields
 def get_product_fields(product) -> dict:
     categoria_id = get_category_knowing_subcategory(product[6])
     return {
@@ -159,6 +167,4 @@ def get_products_by_id(id)->dict:
         return {"status": -1, "message": f"Error de conexión: {e}"}
     finally:
         conn.close()
-
-
 
