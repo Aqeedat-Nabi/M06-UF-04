@@ -47,8 +47,20 @@ def get_category_id_by_name(category_name):
             return None
     except Exception as e:
         return None
+
+def get_category_by_name(nombre):
+    try:
+        conn = db_client()
+        cur = conn.cursor()
+        query = "SELECT * FROM category WHERE name = %s;"
+        cur.execute(query, (nombre,))
+        result = cur.fetchone()
+        return result
+    except Exception as e:
+        return {"status": -1, "message": f"Connection Error: {e}"}
     finally:
         conn.close()
+
 
 
 # UPDATE / MODIFY a category name , given it's id

@@ -31,7 +31,7 @@ def create_subcategory(name_subcategory,category_id):
         return {"status": 0, "message": "Subcategoría creada exitosamente", "subcategory_id": subcategory_id}
     except Exception as e:
         return {"status": -1, "message": f"Error de conexión: {e}"}
-
+      
 
 def get_subcategory_id_by_name(subcategory_name):
     try:
@@ -46,6 +46,19 @@ def get_subcategory_id_by_name(subcategory_name):
             return None
     except Exception as e:
         return None
+ 
+
+def get_subcategory_by_name(nombre):
+    try:
+        conn = db_client()
+        cur = conn.cursor()
+        query = "SELECT * FROM subcategory WHERE name = %s;"
+        cur.execute(query, (nombre,))
+        result = cur.fetchone()
+        return result
+    except Exception as e:
+        return {"status": -1, "message": f"Connection Error: {e}"}
+
     finally:
         conn.close()
 
@@ -60,6 +73,6 @@ def update_subcategory(subcategory_id, subcategory_name, category_id):
         return True
     except Exception as e:
         return False
-    finally:
-        conn.close()
+
+
 
