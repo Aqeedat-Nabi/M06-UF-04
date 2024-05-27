@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert New Product</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link th:href="@{/styles/style_newProduct.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Insert New Product</h1>
+        <form th:action="@{/productes/desar}" method="post">
+            <div>
+                <label for="nom">Product Name:</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div>
+                <label for="units">Units:</label>
+                <input type="number" id="units" name="units" required>
+            </div>
+            <div>
+                <label for="preu">Price:</label>
+                <input type="number" step="0.01" id="preu" name="preu" required>
+            </div>
+            <div>
+                <label for="fabricant">Manufacturer:</label>
+                <input type="text" id="fabricant" name="fabricant" required>
+            </div>
+            <div>
+                <label for="subcategoria">Subcategory:</label>
+                <select id="subcategoria" name="subcategoria" required>
+                    <option th:each="sub : ${subcategories}" th:value="${sub.name}" th:text="${sub.name}"></option>
+                </select>
+            </div>
+            <div>
+                <label for="categoria">Category:</label>
+                <select id="categoria" name="categoria" required>
+                    <option th:each="cat : ${categories}" th:value="${cat.name}" th:text="${cat.name}"></option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+        <div class="link">
+            <a th:href="@{/index}">Back to index</a>
+        </div>
+    </div>
+</body>
+</html>
