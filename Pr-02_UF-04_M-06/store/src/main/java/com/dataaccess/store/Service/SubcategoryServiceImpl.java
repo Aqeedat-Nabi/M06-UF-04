@@ -2,17 +2,19 @@ package com.dataaccess.store.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Set;
+
+import java.util.List;
 import com.dataaccess.store.Model.Subcategory;
 import com.dataaccess.store.Repository.SubcategoryRepository;
 
 @Service
 public class SubcategoryServiceImpl implements SubcategoryService {
+
     @Autowired
     private SubcategoryRepository subcategoryRepository;
 
     @Override
-    public Set<Subcategory> findAllSubcategories() {
+    public List<Subcategory> findAllSubcategories() {
         return subcategoryRepository.findAll();
     }
 

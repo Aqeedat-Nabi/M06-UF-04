@@ -3,7 +3,7 @@ package com.dataaccess.store.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -13,12 +13,14 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long category_id;
 
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private Set<Subcategory> subcategories;
+    @Column(name = "created_at")
+    private LocalDateTime creationDate;
+    
+    @Column(name = "updated_at")
+    private LocalDateTime updateDate;
 }
-

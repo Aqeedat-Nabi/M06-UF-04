@@ -18,7 +18,7 @@ class CSVReader:
             print(f"Error reading CSV file: {str(e)}")
 
 
-    def load_products(file: UploadFile = File(...)):
+    async def load_products(file: UploadFile = File(...)):
         try:
             contents = await file.read()
             contents = contents.decode("utf-8").splitlines()

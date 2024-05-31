@@ -3,7 +3,7 @@ package com.dataaccess.store.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -13,16 +13,17 @@ import java.util.Set;
 public class Subcategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long subcategory_id;
 
     @Column
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    @Column(name = "category_id")
+    private long categoryId;
 
-    @OneToMany(mappedBy = "subcategory")
-    private Set<Product> products;
+    @Column(name = "created_at")
+    private LocalDateTime creationDate;
+    
+    @Column(name = "updated_at")
+    private LocalDateTime updateDate;
 }
-

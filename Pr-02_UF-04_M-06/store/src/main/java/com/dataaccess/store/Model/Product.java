@@ -25,14 +25,21 @@ public class Product implements Serializable {
     private float price;
     @Column
     private long units;
-    @Column(name = "creation_at")
+    
+    @Column(name = "created_at")
     private LocalDateTime creationDate;
+
     @Column(name = "updated_at")
     private LocalDateTime updateDate;
-    //@Column
-    //private String subcategory;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "subcategory_id", nullable = false)
-    private Subcategory subcategory;
+    @Column(name = "subcategory_id")
+    private String subcategory_id;
+    
+/*     @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "subcategory_id", foreignKey = @ForeignKey(name = "FK_PROD_SUBC"), nullable = false)
+    private Subcategory subcategory; */
+
+/*     @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="subcategory_id")
+    private Subcategory subcategory;    */ 
 }

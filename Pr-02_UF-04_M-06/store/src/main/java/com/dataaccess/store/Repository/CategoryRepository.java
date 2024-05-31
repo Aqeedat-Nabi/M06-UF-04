@@ -1,12 +1,8 @@
 package com.dataaccess.store.Repository;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 import com.dataaccess.store.Model.Category;
-import java.util.Set;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface CategoryRepository extends CrudRepository<Category, Long> {
-    Set<Category> findAll();
+public interface CategoryRepository extends JpaRepository<Category, Long> {
     Category findByName(String name);
 }
