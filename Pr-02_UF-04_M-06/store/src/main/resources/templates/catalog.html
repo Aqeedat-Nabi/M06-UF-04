@@ -13,10 +13,11 @@
                 <th>Id of product</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Subcategory</th>
+                <th>Subcategory_id</th>
                 <th>Units of stock</th>
                 <th>Price per unit</th>
                 <th>Fabricator</th>
+                <!-- <th>Category_id</th> -->
             </tr>
         </thead>
         <tbody th:each="product : ${products}">
@@ -28,6 +29,7 @@
                 <td th:text="${product.units}"></td>
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.company}"></td>
+                <!-- <td th:text="${product.subcategory_id.category_id}"></td> -->
             </tr>
         </tbody>
     </table>
