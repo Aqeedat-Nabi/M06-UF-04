@@ -7,14 +7,19 @@ import com.dataaccess.store.Model.Product;
 import com.dataaccess.store.Repository.ProductRepository;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService //hay que llamar a ProductService para implementar 
+//los metodos
+{
+
+
 
     @Autowired
     private ProductRepository productRepository;
 
     @Override
-    public Set<Product> findAllProducts() {
-        return productRepository.findAll();
+    public Set<Product> findAllProducts()  //metodo que esta en service product
+    {
+        return productRepository.findAll(); // findAll -> metodo que esta en product repository
     }
 
     /*
@@ -25,8 +30,9 @@ public class ProductServiceImpl implements ProductService {
      */
 
     @Override
-    public Product findProductsByName(String name) {
-        return productRepository.findByName(name);
+    public Product findProductsByName(String name) //metodo que esta en service product
+    {
+        return productRepository.findByName(name); // -> findByName: esta declarado en repositorio product
     }
 
     /*
@@ -38,12 +44,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product saveProduct(Product product) {
-        return productRepository.save(product);
+        return productRepository.save(product); //metodo que viene de jpaRepo
     }
 
     @Override
     public void deleteProduct(Product product) {
-        productRepository.delete(product);
+        productRepository.delete(product); //metodo que viene de JPARepo
     }
 
 }
