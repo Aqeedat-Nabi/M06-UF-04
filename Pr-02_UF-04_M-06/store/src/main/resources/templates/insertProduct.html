@@ -84,6 +84,7 @@
             </div>
             <div>
                 <label for="subcategory_id">Subcategory_id:</label>
+                <!-- Aqui hemos tenido que modificarlo para que se vea en forma de menu desplegable y deje seleccionar-->
                 <select id="subcategory_id" name="subcategory_id" required th:field="*{subcategory_id}">
                     <option value="" disabled selected>Select a subcategory</option>
                     <option th:each="subcategory : ${subcategories}"

@@ -10,9 +10,11 @@ import com.dataaccess.store.Model.Category;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
+  
     
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository; //necesitamos llamar los metodos desde category 
+    //repositorio donde estan declarados
 
     @Override
     public Set<Category> findAllCategories() {
@@ -26,11 +28,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category saveCategory(Category category) {
-        return categoryRepository.save(category);
+        return categoryRepository.save(category); //metodo de JPARepository
     }
 
     @Override
     public void deleteCategory(Category category) {
-        categoryRepository.delete(category);
+        categoryRepository.delete(category); //metodo de JpaRepository
     }
 }

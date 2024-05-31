@@ -9,7 +9,7 @@ import com.dataaccess.store.Model.Product;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
-
+//metodo de buscar todos los productos y buscar por el nombre del producto
     @Override
     @NonNull
     Set<Product> findAll();
